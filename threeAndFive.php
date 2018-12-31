@@ -16,13 +16,11 @@ function threeFiveFinder($input){
 
     }
     //now add up everything in the array
-    
-    return $arrayOfMultiples;
+    $sum = array_sum($arrayOfMultiples);
+    // return $arrayOfMultiples;
+    return $sum;
 
-
-    //add it to new array
-
-    //then go through array and add all those numbers together (sum)
 }
-$input = 10;
-print_r(threeFiveFinder($input));
+print_r(threeFiveFinder(1000) . " ");
+print_r(threeFiveFinder(49) . " ");
+print_r(threeFiveFinder(19564) . " ");
