@@ -105,16 +105,35 @@ $withoutQuotes = str_replace('"', "", $nowOneString);
 
 $nowArray = preg_split("/\,/", $withoutQuotes);
 $totalValue = 0;
+$totalTriangleWordCount = 0;
 
 foreach($nowArray as $word){
     $nowLetterArray = str_split($word);
   
 
     foreach($nowLetterArray as $letter){
+        $letter1 = $letter;
 
-        $totalValue = $totalValue + $letterValues[$letter];
-    
+        $totalValue = $totalValue + $letterValues[$letter1];
+        echo $totalValue;
+        die();
+
+        
 }
+// return $totalValue;
+//if the total value is one of the 26 we need.. then add one to the list
+//for loop here?
+echo $letterValues[$totalValue];
+if($letterValues[$totalValue]){
+    $totalTriangleWordCount += 1;
+    echo "It was there!";
+}
+    // for($i=0; $i<26; $i++){
+    //     if($totalValue === $letterValues[$i]){
+    //         $totalTriangleWordCount += 1;
+    //     }
+    // }
+
 
 }
 // print_r($nowArray);
@@ -123,6 +142,6 @@ foreach($nowArray as $word){
 // echo fgets($wordFile);
 fclose($wordFile);
 
-echo "The final total value is now: " . $totalValue;
+echo "The final total number of Triangle Words is now: " . $totalTriangleWordCount;
 echo "\n ";
 
