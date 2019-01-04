@@ -44,18 +44,36 @@ for each $wordList as $word {
 $wordFile = fopen('smallerwords.txt', 'r');
 // echo fread($wordFile, filesize('smallerwords.txt'));
 
+//write a function to make the array
+$letterValues = ['A'=>1,
+                
+                 
+                
+                
+                ];
+
 $nowOneString = fgets($wordFile);
 $withoutQuotes = str_replace('"', "", $nowOneString);
 
-echo $withoutQuotes;
-
-
-
 $nowArray = preg_split("/\,/", $withoutQuotes);
-print_r($nowArray);
+
+foreach($nowArray as $word){
+    $nowLetterArray = str_split($word);
+    // print_r($nowLetterArray);
+
+    foreach($nowLetterArray as $letter){
+        if ($letter == 'A' || $letter == 'B'){
+
+        $value = $letterValues[$letter];
+        echo $value;
+    }
+}
+
+}
+// print_r($nowArray);
 
 
-echo fgets($wordFile);
+// echo fgets($wordFile);
 fclose($wordFile);
 
 echo "\n ";
