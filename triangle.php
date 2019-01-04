@@ -24,5 +24,18 @@ Then take the text file
 for each word, apply it to the function above. 
 
 
+Import File
+Cycle through each word
+for each $wordList as $word {
+    break into array
+    for each piece of the array{
+        if that letter is in the key value pair, $wordTotal = $wordTotal + value
+    }
+
+    if ($wordTotal <= 26 && $wordTotal > 0){
+        echo "$word is a triangle word and has a value of $wordTotal"
+    }
+}
+
 
 */
