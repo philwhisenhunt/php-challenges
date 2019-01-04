@@ -108,35 +108,11 @@ $totalValue = 0;
 
 foreach($nowArray as $word){
     $nowLetterArray = str_split($word);
-    // print_r($nowLetterArray);
-
-    // die();
+  
 
     foreach($nowLetterArray as $letter){
 
-        //How can I show the value here? 
         $totalValue = $totalValue + $letterValues[$letter];
-        // echo $letterValues[$letter];
-        echo "The total value is now: " . $totalValue;
-        
-        
-        // echo $letterValues[$letter];
-        // $value = $letterValues[$letter];
-        // echo $value;
-        // $position = "'" . $letter . "'";
-        // echo "The position is " . $position ;
-        // $position = 'A';
-        // echo "But if I assigned it reg it would be " . $position;
-        // echo "\n ";
-
-        // echo $letterValues[$position];
-        // echo $position;
-        
-        // echo $letterValues['A'];
-        // $position = 'A';
-        // echo $letterValues[$position];
-
-
     
 }
 
@@ -147,4 +123,6 @@ foreach($nowArray as $word){
 // echo fgets($wordFile);
 fclose($wordFile);
 
+echo "The final total value is now: " . $totalValue;
 echo "\n ";
+
