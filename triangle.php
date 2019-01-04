@@ -44,13 +44,45 @@ for each $wordList as $word {
 $wordFile = fopen('smallerwords.txt', 'r');
 // echo fread($wordFile, filesize('smallerwords.txt'));
 
-//write a function to make the array
 $letterValues = ['A'=>1,
-                
-                 
-                
-                
+                 'B'=>3,
+                 'C'=>6,
+                 'D'=>10,
+                 'E'=>15,
+                 'F'=>21,
+                 'G'=>28,
+                 'H'=>36,
+                 'I'=>45,
+                 'J'=>55,
+                 'K'=>66,
+                 'L'=>78,
+                 'M'=>91,
+                 'N'=>105,
+                 'O'=>120,
+                 'P'=>136,
+                 'Q'=>153,
+                 'R'=>171,
+                 'S'=>190,
+                 'T'=>210,
+                 'U'=>231,
+                 'V'=>253,
+                 'W'=>276,
+                 'X'=>300,
+                 'Y'=>325,
+                 'Z'=>351,
+        
                 ];
+$lettersOfAlphabet = "abcdefghijklmnopqrstuvwxyz";
+$arrayOfAlphabet = str_split($lettersOfAlphabet);
+print_r($arrayOfAlphabet);
+die();
+
+for($i=1; $i<27; $i++){
+    
+    $newVal = .5 * $i * ($i+1); 
+    echo 'The next value is ' . $newVal . "\n ";
+    
+}
 
 $nowOneString = fgets($wordFile);
 $withoutQuotes = str_replace('"', "", $nowOneString);
