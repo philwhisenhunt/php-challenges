@@ -45,12 +45,15 @@ $wordFile = fopen('smallerwords.txt', 'r');
 // echo fread($wordFile, filesize('smallerwords.txt'));
 
 $nowOneString = fgets($wordFile);
-echo $nowOneString;
+$withoutQuotes = str_replace('"', "", $nowOneString);
+
+echo $withoutQuotes;
 
 
-$str_arr = preg_split("/\,/", $nowOneString);
-print_r($str_arr);
-die();
+
+$nowArray = preg_split("/\,/", $withoutQuotes);
+print_r($nowArray);
+
 
 echo fgets($wordFile);
 fclose($wordFile);
