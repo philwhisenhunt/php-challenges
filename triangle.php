@@ -72,33 +72,72 @@ $letterValues = ['A'=>1,
                  'Z'=>351,
         
                 ];
-$lettersOfAlphabet = "abcdefghijklmnopqrstuvwxyz";
-$arrayOfAlphabet = str_split($lettersOfAlphabet);
-print_r($arrayOfAlphabet);
-die();
+// print_r($letterValues['A']);
 
-for($i=1; $i<27; $i++){
+/* Save this for later                
+$lettersOfAlphabet = "abcdefghijklmnopqrstuvwxyz";
+$lettersOfAlphabet = strtoupper($lettersOfAlphabet);
+
+$arrayOfAlphabet = str_split($lettersOfAlphabet);
+
+print_r($arrayOfAlphabet);
+
+$letterValues2 = [];
+for($i=0; $i<26; $i++){
     
     $newVal = .5 * $i * ($i+1); 
-    echo 'The next value is ' . $newVal . "\n ";
+    $letterValue2[(arrayOfAlphabet[$i])] = $newVal;
+    
+
+    // echo 'Letter ' . $arrayOfAlphabet[$i] . '\'s value is ' . $newVal . "\n ";
+    // $letterValues2[] = "\'$arrayOfAlphabet\[$i\] => $newVal";
+    // print_r($letterValues2);
     
 }
+// print_r($letterValue2);
+
+*/
+
+
 
 $nowOneString = fgets($wordFile);
 $withoutQuotes = str_replace('"', "", $nowOneString);
 
 $nowArray = preg_split("/\,/", $withoutQuotes);
+$totalValue = 0;
 
 foreach($nowArray as $word){
     $nowLetterArray = str_split($word);
     // print_r($nowLetterArray);
 
-    foreach($nowLetterArray as $letter){
-        if ($letter == 'A' || $letter == 'B'){
+    // die();
 
-        $value = $letterValues[$letter];
-        echo $value;
-    }
+    foreach($nowLetterArray as $letter){
+
+        //How can I show the value here? 
+        $totalValue = $totalValue + $letterValues[$letter];
+        // echo $letterValues[$letter];
+        echo "The total value is now: " . $totalValue;
+        
+        
+        // echo $letterValues[$letter];
+        // $value = $letterValues[$letter];
+        // echo $value;
+        // $position = "'" . $letter . "'";
+        // echo "The position is " . $position ;
+        // $position = 'A';
+        // echo "But if I assigned it reg it would be " . $position;
+        // echo "\n ";
+
+        // echo $letterValues[$position];
+        // echo $position;
+        
+        // echo $letterValues['A'];
+        // $position = 'A';
+        // echo $letterValues[$position];
+
+
+    
 }
 
 }
