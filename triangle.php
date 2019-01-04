@@ -34,8 +34,25 @@ for each $wordList as $word {
 
     if ($wordTotal <= 26 && $wordTotal > 0){
         echo "$word is a triangle word and has a value of $wordTotal"
+        $totalTriangleWords += 1;   
     }
 }
 
 
 */
+
+$wordFile = fopen('smallerwords.txt', 'r');
+// echo fread($wordFile, filesize('smallerwords.txt'));
+
+$nowOneString = fgets($wordFile);
+echo $nowOneString;
+
+
+$str_arr = preg_split("/\,/", $nowOneString);
+print_r($str_arr);
+die();
+
+echo fgets($wordFile);
+fclose($wordFile);
+
+echo "\n ";
