@@ -112,14 +112,13 @@ foreach($nowArray as $word){
   
 
     foreach($nowLetterArray as $letter){
-        $letter1 = $letter;
-
-        $totalValue = $totalValue + $letterValues[$letter1];
+        $totalValue = $totalValue + $letterValues["'$letter'"];
         echo $totalValue;
-        die();
+        
 
         
 }
+die();
 // return $totalValue;
 //if the total value is one of the 26 we need.. then add one to the list
 //for loop here?
