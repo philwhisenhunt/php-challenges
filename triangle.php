@@ -11,10 +11,10 @@ For example, the word value for SKY is 19 + 11 + 25 = 55 = t10. If the word valu
 
 Using words.txt, a 16K text file containing nearly two-thousand common English words, how many are triangle words?
 
-
 */
 
 /*
+Planning:
 Make an array with each letter corresponding to a number (use the formula)
 break each word into an array
 foreach letter, add that value to the array 
@@ -22,7 +22,6 @@ total = sum each letter's value
 
 Then take the text file
 for each word, apply it to the function above. 
-
 
 Import File
 Cycle through each word
@@ -37,14 +36,9 @@ for each $wordList as $word {
         $totalTriangleWords += 1;   
     }
 }
-
-
 */
 
-// $wordFile = fopen('smallerwords.txt', 'r');
 $wordFile = fopen('words.txt', 'r');
-
-// echo fread($wordFile, filesize('smallerwords.txt'));
 
 $letterValues = ['A'=>1,
                  'B'=>3,
@@ -74,94 +68,35 @@ $letterValues = ['A'=>1,
                  'Z'=>351,
         
                 ];
-// print_r($letterValues['A']);
-$randomLetter = 'A';
-// $letterA = "'$randomLetter'";
-// echo $letterA;
-// print_r($letterValues[$randomLetter]);
-// print_r($letterValues['A']);
-
-// die();
-
-/* Save this for later                
-$lettersOfAlphabet = "abcdefghijklmnopqrstuvwxyz";
-$lettersOfAlphabet = strtoupper($lettersOfAlphabet);
-
-$arrayOfAlphabet = str_split($lettersOfAlphabet);
-
-print_r($arrayOfAlphabet);
-
-$letterValues2 = [];
-for($i=0; $i<26; $i++){
-    
-    $newVal = .5 * $i * ($i+1); 
-    $letterValue2[(arrayOfAlphabet[$i])] = $newVal;
-    
-
-    // echo 'Letter ' . $arrayOfAlphabet[$i] . '\'s value is ' . $newVal . "\n ";
-    // $letterValues2[] = "\'$arrayOfAlphabet\[$i\] => $newVal";
-    // print_r($letterValues2);
-    
-}
-// print_r($letterValue2);
-
-*/
-
-//What if we did both the splitting and the removal at once?
-
-
 $nowOneString = fgets($wordFile);
 $withoutQuotes = str_replace('"', "", $nowOneString);
 
 $nowArray = preg_split("/\,/", $withoutQuotes);
-// print_r($nowArray);
+// echo count($nowArray);
 // die();
-$totalValue = 0;
+
 $totalTriangleWordCount = 0;
-try{
-        foreach($nowArray as $word){
-            $nowLetterArray = str_split($word);
-            // print_r($nowLetterArray);
-        
-            print_r($nowLetterArray);
-            foreach($nowLetterArray as $letter){
-                echo $letter;
-                echo "\n";
-                $findIndex = $letterValues[$letter];
-                echo $findIndex;
-                // die(); 
-                // $totalValue = $totalValue + $letterValues["'$letter'"];
-                $totalValue = $totalValue + $findIndex;
 
-             
-            }   
-        }
+foreach($nowArray as $word){
+    $totalValue = 0;
 
+    $nowLetterArray = str_split($word);
+
+    foreach($nowLetterArray as $letter){
+        $findIndex = $letterValues[$letter];
+        // echo $findIndex;
+        $totalValue = $totalValue + $findIndex;
+        // echo $totalValue;
+    }  
+// echo $totalValue;
+// echo "\n";
+    if(isset($letterValues[$totalValue])){
+        $totalTriangleWordCount += 1;   
+        // echo $totalTriangleWordCount;
+    }
 }
-catch(Exception $e) {
-    echo 'Message: ' .$e->getMessage();
-  }
-
 // die();
-// return $totalValue;
-//if the total value is one of the 26 we need.. then add one to the list
-//for loop here?
-// if($letterValues[$totalValue]){
-//     $totalTriangleWordCount += 1;
-//     echo "It was there!";
-// }
-    // for($i=0; $i<26; $i++){
-    //     if($totalValue === $letterValues[$i]){
-    //         $totalTriangleWordCount += 1;
-    //     }
-    // }
 
-
-
-// print_r($nowArray);
-
-
-// echo fgets($wordFile);
 fclose($wordFile);
 
 echo "The final total number of Triangle Words is now: " . $totalValue;
