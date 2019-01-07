@@ -98,6 +98,7 @@ for($i=0; $i<26; $i++){
 
 */
 
+//What if we did both the splitting and the removal at once?
 
 
 $nowOneString = fgets($wordFile);
@@ -113,7 +114,7 @@ foreach($nowArray as $word){
 
     foreach($nowLetterArray as $letter){
         $totalValue = $totalValue + $letterValues["'$letter'"];
-        echo $totalValue;
+        return $totalValue;
         
 
         
