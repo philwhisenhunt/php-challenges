@@ -107,19 +107,28 @@ $withoutQuotes = str_replace('"', "", $nowOneString);
 $nowArray = preg_split("/\,/", $withoutQuotes);
 $totalValue = 0;
 $totalTriangleWordCount = 0;
-
-foreach($nowArray as $word){
-    $nowLetterArray = str_split($word);
-  
-
-    foreach($nowLetterArray as $letter){
-        $totalValue = $totalValue + $letterValues["'$letter'"];
-        return $totalValue;
+try{
+        foreach($nowArray as $word){
+            $nowLetterArray = str_split($word);
         
 
-        
+            foreach($nowLetterArray as $letter){
+                $findIndex = $letterValues["'$letter'"];
+                echo $findIndex;
+                die();
+                // $totalValue = $totalValue + $letterValues["'$letter'"];
+                $totalValue = $totalValue + $findIndex;
+
+                return $totalValue;      
+            }   
+        }
+
 }
-die();
+catch(Exception $e) {
+    echo 'Message: ' .$e->getMessage();
+  }
+
+// die();
 // return $totalValue;
 //if the total value is one of the 26 we need.. then add one to the list
 //for loop here?
@@ -135,7 +144,7 @@ if($letterValues[$totalValue]){
     // }
 
 
-}
+
 // print_r($nowArray);
 
 
