@@ -41,7 +41,9 @@ for each $wordList as $word {
 
 */
 
-$wordFile = fopen('smallerwords.txt', 'r');
+// $wordFile = fopen('smallerwords.txt', 'r');
+$wordFile = fopen('words.txt', 'r');
+
 // echo fread($wordFile, filesize('smallerwords.txt'));
 
 $letterValues = ['A'=>1,
@@ -73,6 +75,13 @@ $letterValues = ['A'=>1,
         
                 ];
 // print_r($letterValues['A']);
+$randomLetter = 'A';
+// $letterA = "'$randomLetter'";
+// echo $letterA;
+// print_r($letterValues[$randomLetter]);
+// print_r($letterValues['A']);
+
+// die();
 
 /* Save this for later                
 $lettersOfAlphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -105,21 +114,26 @@ $nowOneString = fgets($wordFile);
 $withoutQuotes = str_replace('"', "", $nowOneString);
 
 $nowArray = preg_split("/\,/", $withoutQuotes);
+// print_r($nowArray);
+// die();
 $totalValue = 0;
 $totalTriangleWordCount = 0;
 try{
         foreach($nowArray as $word){
             $nowLetterArray = str_split($word);
+            // print_r($nowLetterArray);
         
-
+            print_r($nowLetterArray);
             foreach($nowLetterArray as $letter){
-                $findIndex = $letterValues["'$letter'"];
+                echo $letter;
+                echo "\n";
+                $findIndex = $letterValues[$letter];
                 echo $findIndex;
-                die();
+                // die(); 
                 // $totalValue = $totalValue + $letterValues["'$letter'"];
                 $totalValue = $totalValue + $findIndex;
 
-                return $totalValue;      
+             
             }   
         }
 
@@ -132,11 +146,10 @@ catch(Exception $e) {
 // return $totalValue;
 //if the total value is one of the 26 we need.. then add one to the list
 //for loop here?
-echo $letterValues[$totalValue];
-if($letterValues[$totalValue]){
-    $totalTriangleWordCount += 1;
-    echo "It was there!";
-}
+// if($letterValues[$totalValue]){
+//     $totalTriangleWordCount += 1;
+//     echo "It was there!";
+// }
     // for($i=0; $i<26; $i++){
     //     if($totalValue === $letterValues[$i]){
     //         $totalTriangleWordCount += 1;
@@ -151,6 +164,6 @@ if($letterValues[$totalValue]){
 // echo fgets($wordFile);
 fclose($wordFile);
 
-echo "The final total number of Triangle Words is now: " . $totalTriangleWordCount;
+echo "The final total number of Triangle Words is now: " . $totalValue;
 echo "\n ";
 
