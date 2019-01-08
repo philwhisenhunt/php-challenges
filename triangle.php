@@ -40,42 +40,65 @@ for each $wordList as $word {
 
 $wordFile = fopen('words.txt', 'r');
 
+
+
 $letterValues = ['A'=>1,
-                 'B'=>2,
-                 'C'=>3,
-                 'D'=>4,
-                 'E'=>5,
-                 'F'=>6,
-                 'G'=>7,
-                 'H'=>8,
-                 'I'=>9,
-                 'J'=>10,
-                 'K'=>11,
-                 'L'=>12,
-                 'M'=>13,
-                 'N'=>14,
-                 'O'=>15,
-                 'P'=>16,
-                 'Q'=>17,
-                 'R'=>18,
-                 'S'=>19,
-                 'T'=>20,
-                 'U'=>21,
-                 'V'=>22,
-                 'W'=>23,
-                 'X'=>24,
-                 'Y'=>25,
-                 'Z'=>26,
-        
-                ];
+                'B'=>2,
+                'C'=>3,
+                'D'=>4,
+                'E'=>5,
+                'F'=>6,
+                'G'=>7,
+                'H'=>8,
+                'I'=>9,
+                'J'=>10,
+                'K'=>11,
+                'L'=>12,
+                'M'=>13,
+                'N'=>14,
+                'O'=>15,
+                'P'=>16,
+                'Q'=>17,
+                'R'=>18,
+                'S'=>19,
+                'T'=>20,
+                'U'=>21,
+                'V'=>22,
+                'W'=>23,
+                'X'=>24,
+                'Y'=>25,
+                'Z'=>26,
+    
+            ];
+
+            $totalTriangleWordCount = 0;
+
+function isThisTriangle($totalValue){
+        for($n=0; $n<$totalValue; $n++){
+        //   echo gettype($totalValue);
+            // echo gettype($n);
+            // echo gettype((.5 * $n)*($n +1 ));
+
+            if($totalValue == ((.5 * $n)*($n +1 ))){
+                // echo "it works";
+                global $totalTriangleWordCount;
+                return $totalTriangleWordCount += 1;  
+                 
+                }   
+                else {
+                    // echo "didn't work \n";
+
+
+                }
+        }   
+}
+            
 $nowOneString = fgets($wordFile);
 $withoutQuotes = str_replace('"', "", $nowOneString);
 
 $nowArray = preg_split("/\,/", $withoutQuotes);
-// echo count($nowArray);
-// die();
 
-$totalTriangleWordCount = 0;
+
 
 foreach($nowArray as $word){
     $totalValue = 0;
@@ -86,19 +109,22 @@ foreach($nowArray as $word){
         $findIndex = $letterValues[$letter];
         // echo $findIndex;
         $totalValue = $totalValue + $findIndex;
+
         // echo $totalValue;
+        // echo "\n";
     }  
-// echo $totalValue;
-// echo "\n";
-    if(isset($letterValues[$totalValue])){
-        $totalTriangleWordCount += 1;   
-        // echo $totalTriangleWordCount;
-    }
+     isThisTriangle($totalValue);
+    
+    // echo $totalValue;
+    // echo "\n";
+
 }
-// die();
+
+
+// isThisTriangle(55, $totalTriangleWordCount);
 
 fclose($wordFile);
 
-echo "The final total number of Triangle Words is now: " . $totalValue;
+echo "The final total number of Triangle Words is now: " . $totalTriangleWordCount;
 echo "\n ";
 
