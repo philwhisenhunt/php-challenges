@@ -74,6 +74,11 @@ $letterValues = ['A'=>1,
             $totalTriangleWordCount = 0;
 
 function isThisTriangle($totalValue){
+    if($totalValue == 1){
+        global $totalTriangleWordCount;
+        return $totalTriangleWordCount += 1;
+         
+    }
         for($n=0; $n<$totalValue; $n++){
         //   echo gettype($totalValue);
             // echo gettype($n);
