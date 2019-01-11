@@ -5,7 +5,7 @@
 //what we want to do is sort the contents of the array based on numerical value smallest to largest
 //for the arrays, calculate the same. 
 
-$arr = [3, [4,2], 7, 2, 1];
+$arr = [3, [4,2], 7, 2, 1,[9,[1,3]],2];
 
 function sorterArray($arr){
     //cycle through first array
