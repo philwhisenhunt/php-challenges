@@ -18,35 +18,33 @@ function intersection($input){
     // print_r($firstArray);
     // die();
 
-    for($i=1; $i<count($firstArray); $i++){
+    for($i=0; $i<count($firstArray); $i++){
         // print_r($input[$i]);
 
-        for($j=0; $j<count($input[$i]); $j++){
+        for($j=1; $j<count($input); $j++){
             //if $input[$i] DOES NOT CONTAIN $firstArray[$j].. 
-            $compareArray = $input[$i];
+            // $compareArray = $input[$i];
             // print_r($compareArray);
             // echo " is the compareArray";
-            if(in_array($firstArray[$j], $compareArray )){
+            if(! in_array($firstArray[$i], $input[$j] )){
                 //keep going. 
-                // intersection($compareArray);
-
+                $missing = true;
+                break;
                 // And then if THATS there then keep going more. 
                 $intersectionArray[] = $compareArray[$j];
-
-
-            }
-
-            else{
-                break;
-                // $intersectionArray[] = $input[$i][$j];
-                // echo "found at point $i is i and $j is j \n";
+                //Then 
 
             }
 
-            //another else
-
+           
         }
-
+          //now that we've done that, compare intersectionArray to the next array? 
+        //   for($k =0; $k<count($intersectionArray); $k++){
+        //       if(in_array($))
+        //   }
+        if (! $missing) {
+            $intersectionArray[] = $firstArray[$i];
+        }
     }
 
 
