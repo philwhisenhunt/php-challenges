@@ -13,4 +13,4 @@ function invertirizer($input){
 
 $testArray = ['first'=>'second', 'third'=>'fourth'];
 
-echo invertirizer($testArray);
+print_r(invertirizer($testArray)); 
