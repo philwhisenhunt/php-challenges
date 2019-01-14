@@ -18,19 +18,28 @@ function intersection($input){
     // print_r($firstArray);
     // die();
 
-    for($i=0; $i<count($firstArray); $i++){
-        
-        for($j=1; $j<count($input[$j]); $j++){
+    for($i=1; $i<count($firstArray); $i++){
+        // print_r($input[$i]);
+
+        for($j=0; $j<count($input[$i]); $j++){
             //if $input[$i] DOES NOT CONTAIN $firstArray[$j].. 
-            $compareArray = $input[$j];
-            if($firstArray[$i] !== $compareArray[$j]){
-                echo "Not found at point ";
-                echo "$i is i and $j is j \n";
+            $compareArray = $input[$i];
+            // print_r($compareArray);
+            // echo " is the compareArray";
+            if(in_array($firstArray[$j], $compareArray )){
+                //keep going. 
+                // intersection($compareArray);
+
+                // And then if THATS there then keep going more. 
+                $intersectionArray[] = $compareArray[$j];
+
+
             }
 
             else{
-                $intersectionArray[] = $input[$i][$j];
-                echo "found at point $i is i and $j is j \n";
+                break;
+                // $intersectionArray[] = $input[$i][$j];
+                // echo "found at point $i is i and $j is j \n";
 
             }
 
