@@ -18,15 +18,24 @@ function intersection($input){
     // print_r($firstArray);
     // die();
 
-    for($i=1; $i<count($firstArray); $i++){
+    for($i=0; $i<count($firstArray); $i++){
         
-        for($j=0; $j<count($input); $j++){
+        for($j=1; $j<count($input[$j]); $j++){
             //if $input[$i] DOES NOT CONTAIN $firstArray[$j].. 
-            if($firstArray[$i] !== $input[$i][$j]){
-                return "Skip this one";
+            $compareArray = $input[$j];
+            if($firstArray[$i] !== $compareArray[$j]){
+                echo "Not found at point ";
+                echo "$i is i and $j is j \n";
             }
-                //then return "I'm out"
-            
+
+            else{
+                $intersectionArray[] = $input[$i][$j];
+                echo "found at point $i is i and $j is j \n";
+
+            }
+
+            //another else
+
         }
 
     }
