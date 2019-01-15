@@ -7,15 +7,19 @@ function secondInvert($input){
     //put all the keys in one
     //put all the values in another
     //then use map to put them back together again
+    $combinedArray = [];
     $first = array_keys($input);
-    print_r($first);
+    // print_r($first);
 
     $second = array_values($input);
-    print_r($second);
+    // print_r($second);
     
     //now, zip the two together with array_map
     //loop through first array and assign to new array
-    $result = array_map();
+    for($i=0; $i<count($first); $i++){
+        $combinedArray[$i] = $second[$i];
+    }
+    return $combinedArray;
     
 }
 
