@@ -23,17 +23,19 @@ function diagonalFinder($input){
                 
                 //first check if $input[$i][$j + 3] exists
                 if(! empty($input[$i][$j + 3])){
-                    echo "This worked \n";
+                    // echo "This worked \n";
                     // die();
                     $currentTotalRight = $input[$i][$j] + $input[$i][$j + 1 ] + $input[$i][$j + 2 ] + $input[$i][$j + 3 ];
-                        echo $currentTotalRight . "\n";
-
+                        echo "TotalRIGHT: " . $currentTotalRight . "\n";
+                        echo "TOTAL EVER: " . $currentGreatestTotal . "\n";
+                        if($currentTotalRight > $currentGreatestTotal){
+                            echo "It is greater \n";
+                            $currentGreatestTotal = $currentTotalRight;
+                        }
                        
                 }
 
-                if($currentTotalRight > $currentGreatestTotal){
-                    $currentGreatestTotal = $currentGreatestTotal;
-                }
+               
             
 
             }
