@@ -16,18 +16,16 @@ function secondInvert($input){
     
     //now, zip the two together with array_map
     //loop through first array and assign to new array
-    for($i=0; $i<count($first); $i++){
-        $combinedArray[$i] = $second[$i];
-    }
-    return $combinedArray;
+    $result = array_map("mapper", $first, $second);
+    return $result;
+   
     
+}
+
+function mapper($first, $second){
+    return(array($second => $first));
 }
 
 $testArray = ['first'=>'second', 'third'=>'fourth', 'fifth'=>'sixth'];
 
-// print_r(invertirizer($testArray)); 
-
-// $result = array_map("secondInvert", $testArray);
-
-// print_r($result);
 print_r(secondInvert($testArray));
