@@ -25,11 +25,25 @@ function diagonalFinder($input){
                 if(! empty($input[$i][$j + 3])){
                     // echo "This worked \n";
                     // die();
-                    $currentTotalRight = $input[$i][$j] + $input[$i][$j + 1 ] + $input[$i][$j + 2 ] + $input[$i][$j + 3 ];
-                        echo "TotalRIGHT: " . $currentTotalRight . "\n";
-                        echo "TOTAL EVER: " . $currentGreatestTotal . "\n";
+                    $currentTotalRight = $input[$i][$j] * $input[$i][$j + 1 ] * $input[$i][$j + 2 ] * $input[$i][$j + 3 ];
+                        // echo "TotalRIGHT: " . $currentTotalRight . "\n";
+                        // echo "TOTAL EVER: " . $currentGreatestTotal . "\n";
                         if($currentTotalRight > $currentGreatestTotal){
-                            echo "It is greater \n";
+                            // echo "It is greater \n";
+                            $currentGreatestTotal = $currentTotalRight;
+                        }
+                       
+                }
+                 //check to the left
+                 //then check if $input[$i][$j - 3] exists
+                 if(! empty($input[$i][$j - 3])){
+                    // echo "This worked \n";
+                    // die();
+                    $currentTotalRight = $input[$i][$j] * $input[$i][$j - 1 ] * $input[$i][$j - 2 ] * $input[$i][$j - 3 ];
+                        // echo "TotalRIGHT: " . $currentTotalRight . "\n";
+                        // echo "TOTAL EVER: " . $currentGreatestTotal . "\n";
+                        if($currentTotalRight > $currentGreatestTotal){
+                            // echo "It is greater \n";
                             $currentGreatestTotal = $currentTotalRight;
                         }
                        
