@@ -43,9 +43,13 @@
 }
 
 function colMaker($userNumber){
-    for($j=0; $j<$userNumber; $i++){
+    for($j=0; $j<$userNumber; $j++){
     echo rowMaker($userNumber);
     }
+    for($i=0; $i<$userNumber; $i++){
+        echo " ---";
+    }
+    echo "\n";
 }
 
 echo colMaker(3);
