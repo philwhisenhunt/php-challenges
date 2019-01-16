@@ -1,45 +1,8 @@
 <?php
 
-//Make a gameboard
-
 //Tic tac toe game
 
-function rowMaker($userNumber){
-
-    // $userNumber = 3;
-    $userMove = 0;
-
-    for($i=0; $i<$userNumber; $i++){
-        // $rowArray[$i] = " ---";
-        echo " ---";
-    }
-
-    echo "\n";
-    for($i=0; $i<$userNumber; $i++){
-
-        if($userMove === 0){
-            echo "|  x ";
-        }
-        else{
-            echo "|   ";
-        }
-
-    }
-    echo "| \n";
-
-}
-
-function colMaker($userNumber){
-    for($j=0; $j<$userNumber; $j++){
-    echo rowMaker($userNumber);
-    }
-    for($i=0; $i<$userNumber; $i++){
-        echo " ---";
-    }
-    echo "\n";
-}
-
-
+//Make a gameboard
 $blankGameBoard = 
         [
         ["  0 ", "   1 ", "   2 "],
@@ -55,18 +18,18 @@ $blankGameBoard =
   
 function convertToNewYAxis($userInputY){
 
-    if($userInput === 0){
+    if($userInputY === 0){
         $userTypedYAxis = 2;
         return $userTypedYAxis;
 
     }
-    if($userInput === 1){
+    if($userInputY === 1){
         $userTypedYAxis = 4;
         return $userTypedYAxis;
 
     }
 
-    if($userInput === 2){
+    if($userInputY === 2){
         $userTypedYAxis = 6;
         return $userTypedYAxis;
 
@@ -78,30 +41,41 @@ function convertToNewXAxis($userInputX){
     return $userTypedXAxis;
 }
 
-function printTheBoard($inputGameBoard){
+$userTypedXAxis = 2;
+$userTypedYAxis = 2;
+function printTheBoard($inputGameBoard, $userTypedXAxis, $userTypedYAxis){
+
+    $userTypedXAxis = convertToNewXAxis($userTypedXAxis);
+    $userTypedYAxis = convertToNewYAxis($userTypedYAxis);
+
     for($m=0; $m<count($inputGameBoard); $m++){
         for($p=0; $p<count($inputGameBoard[$m]); $p++){
-         print_r($inputGameBoard[$m][$p]);
-        
-        //  echo "m$m, p$p";
-         
+            //if user input is equal to $m or $p, print O?
+            if(($userTypedXAxis === $p) && ($userTypedYAxis === $m)){
+                $inputGameBoard[$m][$p] = " O |";
+                print_r($inputGameBoard[$m][$p]);
+
+                // print_r(" O |");
+
+            }
+            else{
+                print_r($inputGameBoard[$m][$p]);
+
+            }
         }
-     //    echo " --- ";
+   
      echo "\n";
      }
+     return $inputGameBoard;
 }
 
-//accept x axis then y axis
-$userTypedXAxis = 1;
-$userTypedYAxis = 1;
 
 function moveMakerO($userTypedYAxis, $userTypedXAxis){
     $tempArray = [" O |"];
-    // $blankGameBoard = array_replace($blankGameBoard[$userTypedYAxis][$userTypedXAxis], $tempArray);
-    $blankGameBoard[$userTypedYAxis][$userTypedXAxis] = " O |";
+    array_splice($blankGameBoard[$userTypedYAxis][$userTypedXAxis], 1, $tempArray);
     return $blankGameBoard;
 }
 
-print_r(moveMakerO(1,1));
 
+printTheBoard($blankGameBoard, $userTypedXAxis, $userTypedYAxis);
 
