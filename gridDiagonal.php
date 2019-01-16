@@ -1,5 +1,5 @@
 <?php
-//
+// https://learn.freecodecamp.org/coding-interview-prep/project-euler/problem-11-largest-product-in-a-grid/
 function diagonalFinder($input){
   
     $currentGreatestTotal = 0;
