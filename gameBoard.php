@@ -29,14 +29,23 @@
   function rowMaker($userNumber){
 
     // $userNumber = 3;
+    $userMove = 0;
 
     for($i=0; $i<$userNumber; $i++){
+        // $rowArray[$i] = " ---";
         echo " ---";
     }
 
     echo "\n";
     for($i=0; $i<$userNumber; $i++){
-        echo "|   ";
+
+        if($userMove === 0){
+            echo "|  x ";
+        }
+        else{
+            echo "|   ";
+        }
+
     }
     echo "| \n";
 
@@ -52,4 +61,36 @@ function colMaker($userNumber){
     echo "\n";
 }
 
-echo colMaker(3);
+// $blankGameboard =  colMaker(3);
+// echo $blankGameboard;
+
+//now see if we can make it with arrays. 
+
+$fullGameBoard = 
+[["  0 ", "   1 ", "   2 "],
+ ["  ---", "  ---", "  ---"], 
+ ["0 ", "| x ", "| x ", "| x |"], 
+ ["  ---", "  ---", "  ---"], 
+ ["1 ", "| x ", "| x ", "| x |"], 
+ ["  ---", "  ---", "  ---"], 
+ ["2 ", "| x ", "| x ", "| x |"],
+ ["  ---", "  ---", "  ---"]];
+
+// print_r($fullGameBoard);
+// print_r($fullGameBoard);
+
+function printTheBoard($fullGameBoard){
+    for($m=0; $m<count($fullGameBoard); $m++){
+        for($p=0; $p<count($fullGameBoard[$m]); $p++){
+         print_r($fullGameBoard[$m][$p]);
+         
+        }
+     //    echo " --- ";
+     echo "\n";
+     }
+}
+
+//accept x axis then y axis
+$userTypedX = 1;
+$userTypedY = 1;
+printTheBoard($fullGameBoard);
