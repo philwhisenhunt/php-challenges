@@ -40,22 +40,30 @@ function determineWinner($board){
         for($j=0; $j<count($board[$i]); $j++){
 
         //check diagonal top left to bottom right
+        if(! empty($input[$i][$j + 2])){
             if( ($board[$i][$j] === $board[$i + 1][$j+1]) && ($board[$i][$j] === $board[$i+2][$i+2])) { 
                 // return "Winner";
                 echo "Winner diagonal tlbr";
                 echo "\n";
 
             }
+        }
+            
         //check vertical
-            if(($board[$i][$j] === $board[$i][$j+1]) && ($board[$i][$j] === $board[0][$j+2])){
+        if(! empty($input[$i + 2][$j])){
+
+            if(($board[$i][$j] === $board[$i+1][$j]) && ($board[$i][$j] === $board[$i+2][$j])){
                 // return "winner";
                 echo "Winner diagonal vertical";
                 echo "\n";
 
         
             }
+        }
         
         //check horizontal
+        if(! empty($input[$i][$j + 2])){
+
             if(($board[$i][$j] === $board[$i][$j+1]) && ($board[$i][$j] === $board[0][$j+2])){
                 // return "winner";
                 echo "Winner diagonal horizontal";
@@ -63,8 +71,11 @@ function determineWinner($board){
 
         
             }
+        }
         
         //check diagonal bottom left to top right
+        if(! empty($input[$i][$j - 2])){
+
             if(($board[$i][$j] === $board[$i-1][$j-1]) && ($board[$i-2][$j] === $board[$j-2][0])){
                 // return "Winner";
                 echo "Winner diagonal tlbr";
@@ -77,6 +88,7 @@ function determineWinner($board){
 
 
 
+}
 }
 
 
