@@ -66,23 +66,32 @@ function colMaker($userNumber){
 
 //now see if we can make it with arrays. 
 
-$fullGameBoard = 
-[["  0 ", "   1 ", "   2 "],
- ["  ---", "  ---", "  ---"], 
- ["0 ", "| x ", "| x ", "| x |"], 
- ["  ---", "  ---", "  ---"], 
- ["1 ", "| x ", "| x ", "| x |"], 
- ["  ---", "  ---", "  ---"], 
- ["2 ", "| x ", "| x ", "| x |"],
- ["  ---", "  ---", "  ---"]];
+$blankGameBoard = 
+        [
+        ["  0 ", "   1 ", "   2 "],
+        ["  ---", "  ---", "  ---"], 
+ ["0 ", "|", "   |", "   |", "   |"], 
+         ["  ---", "  ---", "  ---"], 
+  ["1 ", "|","   |", "   |", "   |"], 
+        ["  ---", "  ---", "  ---"], 
+  ["2 ", "|","   |", "   |", "   |"],
+        ["  ---", "  ---", "  ---"]
+        ];
 
-// print_r($fullGameBoard);
-// print_r($fullGameBoard);
+$blankGameBoard[$userTypedXAxis + 2][$userTypedYAxis + 2] = " 0 |"; //00
+$blankGameBoard[$userTypedXAxis + 4][$userTypedYAxis + 2] = " 0 |"; //01
+$blankGameBoard[$userTypedXAxis + 6][$userTypedYAxis + 2] = " 0 |"; //02
 
-function printTheBoard($fullGameBoard){
-    for($m=0; $m<count($fullGameBoard); $m++){
-        for($p=0; $p<count($fullGameBoard[$m]); $p++){
-         print_r($fullGameBoard[$m][$p]);
+
+
+// print_r($blankGameBoard);
+// print_r($blankGameBoard);
+
+function printTheBoard($inputGameBoard){
+    for($m=0; $m<count($inputGameBoard); $m++){
+        for($p=0; $p<count($inputGameBoard[$m]); $p++){
+         print_r($inputGameBoard[$m][$p]);
+        //  echo "m$m, p$p";
          
         }
      //    echo " --- ";
@@ -91,6 +100,12 @@ function printTheBoard($fullGameBoard){
 }
 
 //accept x axis then y axis
-$userTypedX = 1;
-$userTypedY = 1;
-printTheBoard($fullGameBoard);
+$userTypedXAxis = 1;
+$userTypedYAxis = 1;
+$userArray = [];
+// $userArray[$userTypedXAxis][$userTypedYAxis] = "| O ";
+
+//So first, print a blank game board
+printTheBoard($blankGameBoard);
+echo "Want to play? \n";
+echo "\n";
