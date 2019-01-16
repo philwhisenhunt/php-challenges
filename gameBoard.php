@@ -12,4 +12,40 @@
 |   |   |   | 
  --- --- --- 
 
- 8?
+ */
+
+ $test = "  --- --- --- 
+ |   |   |   | 
+  --- --- ---  
+ |   |   |   | 
+  --- --- ---  
+ |   |   |   | 
+  --- --- --- ";
+
+//   echo $test;
+
+  //so the first part will be to get that top row. 
+
+  function rowMaker($userNumber){
+
+    // $userNumber = 3;
+
+    for($i=0; $i<$userNumber; $i++){
+        echo " ---";
+    }
+
+    echo "\n";
+    for($i=0; $i<$userNumber; $i++){
+        echo "|   ";
+    }
+    echo "| \n";
+
+}
+
+function colMaker($userNumber){
+    for($j=0; $j<$userNumber; $i++){
+    echo rowMaker($userNumber);
+    }
+}
+
+echo colMaker(3);
