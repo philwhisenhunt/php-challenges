@@ -6,23 +6,42 @@
 //check for even
 //if even, then spit it out
 
-// start with a for loop
-function fibEven($input){
-    for($i=0; $i<$input; $i++){
-        if($i<3){
-            return $i;
+function fib3($input){
+
+    $x = 0;    
+    $y = 1; 
+    $stored[] = $y;
+    echo "\n";
+    for($i=0;$i<=$input;$i++)    
+    {    
+        $z = $x + $y;    
+        $stored[] =  $z;
+        $x=$y;       
+        $y=$z;     
+    }   
+
+    for($i=0; $i<count($stored); $i++){
+
+        if(($stored[$i] % 2) === 0){
+            print_r($stored[$i]);
+            echo "\n";
         }
 
         else{
-            return fibEven($i-1) + fibEven($i-2);
-     
+            // echo "bleh \n";
         }
-        // echo $result;
-        echo "\n";
+
+
+
     }
 }
 
-echo fibEven(10);
+echo fib3(10);
+
+
+
+
+
 
 
 
