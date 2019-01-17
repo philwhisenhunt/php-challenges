@@ -137,6 +137,12 @@ function whoWon($input){
 
 }
 
+function spitter($board){
+    foreach($board as $square){
+        print $square;
+    }
+}
+
 
 
 // echo determineWinner($board);
