@@ -36,7 +36,7 @@ function fib3($input){
     }
 }
 
-echo fib3(10);
+echo fib3(70);
 
 
 

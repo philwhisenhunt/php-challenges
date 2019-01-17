@@ -38,10 +38,16 @@ function determineWinner($board){
 
     for($i=0; $i<count($board); $i++){
         for($j=0; $j<count($board[$i]); $j++){
-
+            echo '$i:' . $i . "  ";
+           
+            echo '$j:' . $j . "  ";
+            echo "\n";
         //check diagonal top left to bottom right
-        if(! empty($input[$i][$j + 2])){
-            if( ($board[$i][$j] === $board[$i + 1][$j+1]) && ($board[$i][$j] === $board[$i+2][$i+2])) { 
+        if(! empty($board[$i + 2][$j + 2])){
+            // if(1 === 1){
+                echo "trueee";
+            // if( ($board[$i][$j] === $board[$i + 1][$j+1]) && ($board[$i][$j] === $board[$i+2][$j+2])) { 
+                if( ($board[$i][$j] === $board[$i + 1][$j+1]) && ($board[$i][$j] === $board[$i+2][$j+2])) { 
                 // return "Winner";
                 echo "Winner diagonal tlbr";
                 echo "\n";
@@ -50,7 +56,7 @@ function determineWinner($board){
         }
             
         //check vertical
-        if(! empty($input[$i + 2][$j])){
+        if(! empty($board[$i + 2][$j])){
 
             if(($board[$i][$j] === $board[$i+1][$j]) && ($board[$i][$j] === $board[$i+2][$j])){
                 // return "winner";
@@ -62,7 +68,7 @@ function determineWinner($board){
         }
         
         //check horizontal
-        if(! empty($input[$i][$j + 2])){
+        if(! empty($board[$i][$j + 2])){
 
             if(($board[$i][$j] === $board[$i][$j+1]) && ($board[$i][$j] === $board[0][$j+2])){
                 // return "winner";
@@ -74,15 +80,20 @@ function determineWinner($board){
         }
         
         //check diagonal bottom left to top right
-        if(! empty($input[$i][$j - 2])){
+        if(! empty($board[$i-2][$j - 2])){
 
-            if(($board[$i][$j] === $board[$i-1][$j-1]) && ($board[$i-2][$j] === $board[$j-2][0])){
+            if(($board[$i][$j] === $board[$i-1][$j-1]) && ($board[$i][$j] === $board[$i-2][$j-2])){
                 // return "Winner";
                 echo "Winner diagonal tlbr";
                 echo "\n";
 
         
             }
+        }
+
+        else{
+            // echo "nothing works";
+            // echo "\n";
         }
     }
 
