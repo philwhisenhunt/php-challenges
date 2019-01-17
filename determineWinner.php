@@ -23,6 +23,10 @@ $board4 =  [[1, 0, 2],
             [1, 0, 2],
             [0, 0, 2]];
 
+$board5 = [[1,1,2],
+            [2,2,1],
+            [1,1,2]];
+
 
 function determineWinner($board){
 
@@ -52,6 +56,11 @@ function determineWinner($board){
 
             if(($board[$i][$j] === $board[$i+1][$j]) && ($board[$i][$j] === $board[$i+2][$j])){
                 // return "winner";
+
+                // echo $board[$i][$j];
+                // echo $board[$i+1][$j];
+                // echo $board[$i+2][$j];
+
                 echo "Winner vertical";
                 echo "\n";
 
@@ -64,7 +73,7 @@ function determineWinner($board){
         //check horizontal
         if(! empty($board[$i][$j + 2])){
 
-            if(($board[$i][$j] === $board[$i][$j+1]) && ($board[$i][$j] === $board[0][$j+2])){
+            if(($board[$i][$j] === $board[$i][$j+1]) && ($board[$i][$j] === $board[$i][$j+2])){
                 // return "winner";
                 echo "Winner  horizontal";
                 echo "\n";
@@ -95,7 +104,11 @@ function determineWinner($board){
 
         else{
             // echo "OOPS";
+            
+           
         }
+
+        return 3;
     }
 
 
@@ -116,11 +129,17 @@ function whoWon($input){
         echo "\n";
     }
 
+    if($input === 3){
+        return "The game was a tie";
+        echo "\n";
+
+    }
+
 }
 
 
 
 // echo determineWinner($board);
-echo whoWon(determineWinner($board4));
+echo whoWon(determineWinner($board5));
 echo "\n";
 
