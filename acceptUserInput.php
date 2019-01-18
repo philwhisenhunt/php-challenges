@@ -30,7 +30,7 @@ do{
 
         $userInput = explode(",", $userInput);
 
-        if($board[$i][$j]);
+       
 
         $i = $userInput[0];
         $j = $userInput[1];
@@ -39,7 +39,7 @@ do{
         
         //assign the new coordinate to the board
 
-        if($i >= 3 || $i<0 || $j > 3 || $j<0){
+        if($i >= 3 || $i<0 || $j >= 3 || $j<0){
             echo "You wasted a turn! \n";
             if($user == 1){
                 $user = 2;
@@ -47,8 +47,22 @@ do{
             if($user == 2){
                 $user = 1;
             }
+
+            
             
         }
+
+        if($board[$i][$j] == 1 || $board[$i][$j] == 2){
+            echo "Spot is taken, try again \n";
+            //But needs to not allow input. 
+            if($user == 1){
+                $user = 2;
+            }
+            if($user == 2){
+                $user = 1;
+            }
+        };
+
         if($user == 1){
             if($i < 3 && $i>=0 && $j < 3 && $j>=0){
                 // echo "hello";
@@ -67,13 +81,6 @@ do{
 
         }
     }
-
-
-        // else {
-        //     echo "You lose, game over \n";
-        //     $continue = false;
-        //     // exit();
-        // }
 
         //Next step is to 
         //1. remove the space steal
