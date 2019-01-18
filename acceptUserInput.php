@@ -1,6 +1,7 @@
 <?php
 //receive user input
 //add to tic tac toe board
+require 'determineWinner.php';
 
 $board =  [[0, 0, 0],
             [0, 0, 0],
@@ -69,16 +70,24 @@ do{
     
         }
 $continue = true;
-    }
-}
+        
+    } //end placeholder for valid input
+} //end do 
 
 while($continue === true);
 
-echo "are we here?";
+echo "End of program";
 
 
 
+// if(! whoWon(determineWinner($board))){
+        //     $continue = true;
+        // }
 
+        // else{
+        //     $continue = false;
+
+        // }
 
 
 //break apart the userInput
