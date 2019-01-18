@@ -50,6 +50,15 @@ do{
             if($user == 1){
                 if($i < 3 && $i>=0 && $j < 3 && $j>=0){
                     $board[$i][$j] = 1;
+                    $answer = determineWinner($board);
+
+                    if($answer === 1 || $answer === 2){
+                        $answer = whoWon($answer);
+                        echo "received: $answer";
+                        die();
+                    }
+                  
+
                     $user = 2;
                     echo "Now it is user2's turn \n \n";
 
@@ -60,6 +69,13 @@ do{
             else{
                 if($i < 3 && $i>=0 && $j < 3 && $j>=0){
                     $board[$i][$j] = 2;
+                    $answer = determineWinner($board);
+
+                    if($answer === 1 || $answer === 2){
+                        $answer = whoWon($answer);
+                        echo "received: $answer";
+                        die();
+                    }
                     $user =1;
                     echo "Now it is user1's turn \n \n";
 
@@ -72,6 +88,7 @@ do{
 $continue = true;
         
     } //end placeholder for valid input
+
 } //end do 
 
 while($continue === true);

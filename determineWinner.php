@@ -112,36 +112,37 @@ function determineWinner($board){
             
             }
 
-            return 3;
+            // return 3;
         }
 //}
 
 
 
 }
+return 3;
 }
 
 function whoWon($input){
     if($input ===  1)
     {
-        return "The winner is Player 1";
+        return "The winner is Player 1 \n";
         echo "\n";
     }
 
     if($input ===  2)
     {
-        return "The winner is Player 2";
+        return "The winner is Player 2 \n";
         echo "\n";
     }
 
     if($input === 3){
-        return "The game was a tie";
+        return "The game was a tie \n";
         echo "\n";
 
     }
 
     else{
-        return false;
+        return "The game goes on! ";
     }
 
 }
