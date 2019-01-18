@@ -37,27 +37,11 @@ do{
         //assign the new coordinate to the board
 
         if($i >= 3 || $i<0 || $j >= 3 || $j<0){
-            echo "You wasted a turn! \n";
-
-            if($user == 1){
-                $user = 2;
-            }
-
-            if($user == 2){
-                $user = 1;
-            }
+            echo "Number is too small or negative, try again \n";
         }
 
         elseif($board[$i][$j] == 1 || $board[$i][$j] == 2){
             echo "Spot is taken, try again \n\n";
-            //But needs to not allow input. 
-            if($user == 1){
-                $user = 2;
-            }
-
-            if($user == 2){
-                $user = 1;
-            }
         }
 
         else{
@@ -81,9 +65,7 @@ do{
                 }
             }
 
-            //Next step is to 
-            //1. remove the space steal
-            //2. No allowing J to be higher than 2.
+      
     
         }
 $continue = true;
@@ -105,3 +87,4 @@ echo "are we here?";
 //$board[$i][$j] = 1;
 
 
+//illegal move, and ask for another one. 
