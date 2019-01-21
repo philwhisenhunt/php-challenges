@@ -3,6 +3,7 @@
 //add to tic tac toe board
 require 'determineWinner.php';
 require 'boardPrinter.php';
+require "whoWon.php";
 // require 'newBoard.php';
 
 $board =  [[0, 0, 0],
@@ -17,6 +18,8 @@ $board = $expBoard;
 $i = 0;
 $j = 0;
 $user = 1;
+$moveCounter = 0;
+$continue = true;
 
 do{
     //print the board
@@ -49,13 +52,17 @@ do{
             if($user == 1){
                 if($i < 3 && $i>=0 && $j < 3 && $j>=0){
                     $board[$i][$j] = 1;
+                    $moveCounter += 1;
+                    echo "The move count is now: $moveCounter \n";
                     $answer = determineWinner($board);
-                    boardPrinter($board);
+
+                    $answer = determineWinner($board);
+                    echo boardPrinter($board);
 
 
                     if($answer === 1 || $answer === 2){
                         $answer = whoWon($answer);
-                        echo "received: $answer";
+                        echo "Game Over: $answer";
                         die();
                     }
                   
@@ -70,12 +77,14 @@ do{
             else{
                 if($i < 3 && $i>=0 && $j < 3 && $j>=0){
                     $board[$i][$j] = 2;
+                    $moveCounter += 1;
+                    echo "The move count is now: $moveCounter \n";
                     $answer = determineWinner($board);
-                    boardPrinter($board);
+                    echo boardPrinter($board);
 
                     if($answer === 1 || $answer === 2){
                         $answer = whoWon($answer);
-                        echo "received: $answer";
+                        echo "Game Over: $answer";
                         die();
                     }
                     $user = 1;
@@ -87,7 +96,7 @@ do{
       
     
         }
-$continue = true;
+
         
     } //end placeholder for valid input
 
@@ -100,20 +109,3 @@ echo "End of program";
 
 
 
-// if(! whoWon(determineWinner($board))){
-        //     $continue = true;
-        // }
-
-        // else{
-        //     $continue = false;
-
-        // }
-
-
-//break apart the userInput
-//first one is assigned to $i
-//second one is assigned to $j
-//$board[$i][$j] = 1;
-
-
-//illegal move, and ask for another one. 
