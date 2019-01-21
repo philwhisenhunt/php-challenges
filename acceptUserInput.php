@@ -107,7 +107,7 @@ do{
                         echo "received: $answer";
                         die();
                     }
-                    $user =1;
+                    $user = 1;
                     echo "Now it is user1's turn \n \n";
 
                 }

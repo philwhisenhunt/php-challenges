@@ -110,21 +110,35 @@ function determineWinner($board){
 
             else{
                 // echo "OOPS";
-                
+                // return $board[$i][$j];
+                // if($board[$i][$j] == 0 ||){
+                //     return 3;
+
+                // }
+                // return 4;
             
             }
 
-            // return 3;
+            return 3;
         }
 //}
 
 
 
 }
-return 3;
+    // if ($board[$i][$j] === 1 || $board[$i][$j] === 2  ){ //why undefined offset here?
+    //     return 3;
+
+    // }
 }
 
 function whoWon($input){
+
+    if($input ===  4)
+    {
+        return "Game on forever! \n";
+        echo "\n";
+    }
     if($input ===  1)
     {
         return "The winner is Player 1 \n";
@@ -144,7 +158,7 @@ function whoWon($input){
     }
 
     else{
-        return "The game goes on! ";
+        // return "The game goes on! ";
     }
 
 }
