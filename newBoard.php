@@ -21,7 +21,7 @@ $blankGameBoard =
   
 $board =   [[0, 0, 0],
             [0, 0, 0],
-            [0, 1, 0]];
+            [0, 1, 2]];
 
 function boardMaker($board){
 
@@ -30,15 +30,15 @@ function boardMaker($board){
     
     
             if($board[$i][$j] == 0){
-                echo "   |";
+                echo " |  |";
             }
     
             if($board[$i][$j] == 1){
-                echo "     x |";
+                echo "|  x |";
             }
     
-            if($board[$i][$j] == 0){
-                echo " o |";
+            if($board[$i][$j] == 2){
+                echo "|  o |";
             }
     
     
@@ -48,3 +48,4 @@ function boardMaker($board){
     }
 }
 
+echo boardMaker($board);

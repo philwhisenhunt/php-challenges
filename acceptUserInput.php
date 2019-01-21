@@ -2,11 +2,16 @@
 //receive user input
 //add to tic tac toe board
 require 'determineWinner.php';
-require 'newBoard.php';
+// require 'newBoard.php';
 
 $board =  [[0, 0, 0],
             [0, 0, 0],
             [0, 0, 0]];
+
+$rowMaker = [0,0,0];
+$expBoard = [$rowMaker, $rowMaker, $rowMaker];
+$board = $expBoard;
+
 
 $i = 0;
 $j = 0;
@@ -15,16 +20,18 @@ $user = 1;
 do{
     //print the board
     echo "The board: \n";
-    // for($i=0; $i<count($board); $i++){
-    //     for($j=0; $j<count($board[$i]); $j++){
-    //         echo $board[$i][$j] . " ";
-    //     }
+    echo "  0 1 2 \n";
+    for($i=0; $i<count($board); $i++){
+        echo $i . " "; //set up the coordinates for the horizontal rows
+        for($j=0; $j<count($board[$i]); $j++){
+            echo $board[$i][$j] . " ";
+        }
     
-    //     echo "\n";
+        echo "\n";
 
     
-    // }
-    echo boardMaker($board);
+    }
+    // echo boardMaker($board);
 
 
     //accept the input

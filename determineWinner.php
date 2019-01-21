@@ -40,6 +40,8 @@ function determineWinner($board){
 
 //        if($i !== 0 && $j !== 0){
 
+       
+                //do nothing
             
             if(! empty($board[$i + 2][$j + 2])){
                     if( ($board[$i][$j] === $board[$i + 1][$j+1]) && ($board[$i][$j] === $board[$i+2][$j+2])) { 
