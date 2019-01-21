@@ -23,7 +23,7 @@ $board =   [[0, 0, 0],
             [0, 0, 0],
             [0, 1, 0]];
 
-function boardMaker($input){
+function boardMaker($board){
 
     for($i=0; $i<count($board); $i++){
         for($j=0; $j<count($board[$i]); $j++){

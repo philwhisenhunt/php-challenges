@@ -2,6 +2,7 @@
 //receive user input
 //add to tic tac toe board
 require 'determineWinner.php';
+require 'newBoard.php';
 
 $board =  [[0, 0, 0],
             [0, 0, 0],
