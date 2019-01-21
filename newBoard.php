@@ -19,66 +19,32 @@ $blankGameBoard =
         ];
 
   
-function convertToNewYAxis($userInputY){
+$board =   [[0, 0, 0],
+            [0, 0, 0],
+            [0, 1, 0]];
 
-    if($userInputY === 0){
-        $userTypedYAxis = 2;
-        return $userTypedYAxis;
+function boardMaker($input){
 
-    }
-    if($userInputY === 1){
-        $userTypedYAxis = 4;
-        return $userTypedYAxis;
-
-    }
-
-    if($userInputY === 2){
-        $userTypedYAxis = 6;
-        return $userTypedYAxis;
-
-    }
-}
-
-function convertToNewXAxis($userInputX){
-    $userTypedXAxis  = $userInputX + 2;
-    return $userTypedXAxis;
-}
-
-$userTypedXAxis = 2;
-$userTypedYAxis = 2;
-function printTheBoard($inputGameBoard, $userTypedXAxis, $userTypedYAxis){
-
-    $userTypedXAxis = convertToNewXAxis($userTypedXAxis);
-    $userTypedYAxis = convertToNewYAxis($userTypedYAxis);
-
-    for($m=0; $m<count($inputGameBoard); $m++){
-        for($p=0; $p<count($inputGameBoard[$m]); $p++){
-            //if user input is equal to $m or $p, print O?
-            if(($userTypedXAxis === $p) && ($userTypedYAxis === $m)){
-                $inputGameBoard[$m][$p] = " O |";
-                print_r($inputGameBoard[$m][$p]);
-
-                // print_r(" O |");
-
+    for($i=0; $i<count($board); $i++){
+        for($j=0; $j<count($board[$i]); $j++){
+    
+    
+            if($board[$i][$j] == 0){
+                echo "   |";
             }
-            else{
-                print_r($inputGameBoard[$m][$p]);
-
+    
+            if($board[$i][$j] == 1){
+                echo "     x |";
             }
+    
+            if($board[$i][$j] == 0){
+                echo " o |";
+            }
+    
+    
+            
         }
-   
-     echo "\n";
-     }
-     return $inputGameBoard;
+        echo "\n";
+    }
 }
-
-
-function moveMakerO($userTypedYAxis, $userTypedXAxis){
-    $tempArray = [" O |"];
-    array_splice($blankGameBoard[$userTypedYAxis][$userTypedXAxis], 1, $tempArray);
-    return $blankGameBoard;
-}
-
-
-printTheBoard($blankGameBoard, $userTypedXAxis, $userTypedYAxis);
 
