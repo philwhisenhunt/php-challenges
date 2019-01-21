@@ -1,6 +1,6 @@
 <?php
 
-function whoWon($input){
+function whoWon($input, $moveCounter){
 
     if($input ===  4)
         {
@@ -19,12 +19,20 @@ function whoWon($input){
             echo "\n";
         }
 
-    if($input === 3)
+    // if($input === 3)
+    //     {
+    //         return "The game was a tie \n";
+    //         echo "\n";
+
+    //     }
+
+        if($moveCounter === 9)
         {
             return "The game was a tie \n";
             echo "\n";
 
         }
+
 
     else{
         // return "The game goes on! ";
