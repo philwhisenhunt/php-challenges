@@ -15,14 +15,17 @@ $user = 1;
 do{
     //print the board
     echo "The board: \n";
-    for($i=0; $i<count($board); $i++){
-        for($j=0; $j<count($board[$i]); $j++){
-            echo $board[$i][$j] . " ";
-        }
+    // for($i=0; $i<count($board); $i++){
+    //     for($j=0; $j<count($board[$i]); $j++){
+    //         echo $board[$i][$j] . " ";
+    //     }
     
-        echo "\n";
+    //     echo "\n";
+
     
-    }
+    // }
+    echo boardMaker($board);
+
 
     //accept the input
     $userInput = readline("\nUser number $user ,Type your coordinates here, separated by a comma \n");
