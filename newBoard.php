@@ -5,10 +5,11 @@
 //Make a gameboard
 
 //add slots to add user input in the gameboard
+$piece = "  ---";
 $blankGameBoard = 
         [
         ["  0 ", "   1 ", "   2 "],
-        ["  ---", "  ---", "  ---"], 
+        ["  ---", $piece, "  ---"], 
  ["0 ", "|", "   |", "   |", "   |"], 
          ["  ---", "  ---", "  ---"], 
   ["1 ", "|","   |", "   |", "   |"], 
