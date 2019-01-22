@@ -56,16 +56,22 @@ do{
                     echo "The move count is now: $moveCounter \n";
                     $answer = determineWinner($board);
 
-                    $answer = determineWinner($board);
 
+                        if($answer === 1 || $answer === 2){
+                            $answer = whoWon($answer, $moveCounter);
+                            echo "Game Over: $answer";
+                            echo boardPrinter($board);
 
-                    if($answer === 1 || $answer === 2){
-                        $answer = whoWon($answer, $moveCounter);
-                        echo "Game Over: $answer";
-                        echo boardPrinter($board);
+                            die();
+                        }
 
-                        die();
-                    }
+                        if($answer === 3 && $moveCounter > 8){
+                            $answer = whoWon($answer, $moveCounter);
+                            echo "Game Over: $answer";
+                            echo boardPrinter($board);
+                            die();
+
+                        }
                   
 
                     $user = 2;
@@ -82,13 +88,21 @@ do{
                     echo "The move count is now: $moveCounter \n";
                     $answer = determineWinner($board);
 
-                    if($answer === 1 || $answer === 2){
-                        $answer = whoWon($answer, $moveCounter);
-                        echo "Game Over: $answer";
-                        echo boardPrinter($board);
+                        if($answer === 1 || $answer === 2){
+                            $answer = whoWon($answer, $moveCounter);
+                            echo "Game Over: $answer";
+                            echo boardPrinter($board);
 
-                        die();
-                    }
+                            die();
+                        }
+
+                        if($answer === 3){
+                            $answer = whoWon($answer, $moveCounter);
+                            echo "Game Over: $answer";
+                            echo boardPrinter($board);
+                            die();
+
+                        }
                     $user = 1;
                     echo "Now it is user1's turn \n \n";
 
