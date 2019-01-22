@@ -26,16 +26,4 @@ function whoWon($input){
 
         }
 
-        // if($moveCounter > 8)
-        // {
-        //     return "The game was a tie \n";
-        //     echo "\n";
-
-        // }
-
-
-    else{
-        // return "The game goes on! ";
-    }
-
 }

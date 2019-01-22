@@ -53,9 +53,7 @@ do{
                 if($i < 3 && $i>=0 && $j < 3 && $j>=0){
                     $board[$i][$j] = 1;
                     $moveCounter++;
-                    echo "The move count is now: $moveCounter \n";
                     $answer = determineWinner($board, $moveCounter);
-                    echo 'The $answer variable is printing as: ' . $answer . "\n";
 
 
                         if($answer === 1 || $answer === 2){
@@ -86,10 +84,7 @@ do{
                 if($i < 3 && $i>=0 && $j < 3 && $j>=0){
                     $board[$i][$j] = 2;
                     $moveCounter++;
-                    echo "The move count is now: $moveCounter \n";
                     $answer = determineWinner($board, $moveCounter);
-                    echo 'The $answer variable is printing as: ' . $answer . "\n";
-
 
                         if($answer === 1 || $answer === 2){
                             $answer = whoWon($answer);

@@ -5,22 +5,22 @@ function determineWinner($board, $moveCounter){
 
     for($i=0; $i<count($board); $i++){
         for($j=0; $j<count($board[$i]); $j++){
-            echo '$i is: ' . $i;
-            echo "\n";
-            echo '$j is: ' . $j;
-            echo "\n";
+            // echo '$i is: ' . $i;
+            // echo "\n";
+            // echo '$j is: ' . $j;
+            // echo "\n";
 
             //check diagonal from tpo left to bottom right 
             if(! empty($board[$i + 2][$j + 2])){
                     if( ($board[$i][$j] === $board[$i + 1][$j+1]) && ($board[$i][$j] === $board[$i+2][$j+2])) { 
-                    // return "Winner";
+                        // return "Winner";
 
-                
-                    echo "Winner diagonal tlbr";
-                    echo "\n";
+                    
+                        echo "Winner diagonal tlbr";
+                        echo "\n";
 
-                    return $board[$i][$j];
-                    echo "\n";
+                        return $board[$i][$j];
+                        echo "\n";
 
                 }
             }
@@ -58,8 +58,7 @@ function determineWinner($board, $moveCounter){
             }
             
             //check diagonal bottom left to top right
-            // if(! empty($board[$i-2][$j + 2])){
-                if(! empty($board[$i - 2][$j + 2])){
+            if(! empty($board[$i-2][$j + 2])){
 
                     if(($board[$i][$j] === $board[$i-1][$j+1]) && ($board[$i][$j] === $board[$i-2][$j+2])){
                         // return "Winner";
@@ -74,9 +73,7 @@ function determineWinner($board, $moveCounter){
             }
             //check for a tie
             if(! empty($board[$i][$j])){
-                echo "hello \n";
-
-
+                
                 if($moveCounter > 8){
                     // return "Winner";
                    
