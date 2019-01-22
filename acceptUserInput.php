@@ -55,6 +55,7 @@ do{
                     $moveCounter++;
                     echo "The move count is now: $moveCounter \n";
                     $answer = determineWinner($board);
+                    echo 'The $answer variable is printing as: ' . $answer . "\n";
 
 
                         if($answer === 1 || $answer === 2){
@@ -87,6 +88,8 @@ do{
                     $moveCounter++;
                     echo "The move count is now: $moveCounter \n";
                     $answer = determineWinner($board);
+                    echo 'The $answer variable is printing as: ' . $answer . "\n";
+
 
                         if($answer === 1 || $answer === 2){
                             $answer = whoWon($answer, $moveCounter);
@@ -96,7 +99,7 @@ do{
                             die();
                         }
 
-                        if($answer === 3){
+                        if($answer === 3 && $moveCounter > 8){
                             $answer = whoWon($answer, $moveCounter);
                             echo "Game Over: $answer";
                             echo boardPrinter($board);
