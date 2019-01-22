@@ -1,12 +1,9 @@
 <?php
-//receive user input
-//add to tic tac toe board
 require 'determineWinner.php';
 require 'boardPrinter.php';
 require "whoWon.php";
-// require 'newBoard.php';
 
-$board =  [[0, 0, 0],
+$board =   [[0, 0, 0],
             [0, 0, 0],
             [0, 0, 0]];
 
@@ -117,9 +114,6 @@ do{
 } //end do 
 
 while($continue === true);
-
-
-echo "End of program";
 
 
 
