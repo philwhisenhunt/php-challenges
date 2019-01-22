@@ -54,12 +54,12 @@ do{
                     $board[$i][$j] = 1;
                     $moveCounter++;
                     echo "The move count is now: $moveCounter \n";
-                    $answer = determineWinner($board);
+                    $answer = determineWinner($board, $moveCounter);
                     echo 'The $answer variable is printing as: ' . $answer . "\n";
 
 
                         if($answer === 1 || $answer === 2){
-                            $answer = whoWon($answer, $moveCounter);
+                            $answer = whoWon($answer);
                             echo "Game Over: $answer";
                             echo boardPrinter($board);
 
@@ -67,7 +67,7 @@ do{
                         }
 
                         if($answer === 3 && $moveCounter > 8){
-                            $answer = whoWon($answer, $moveCounter);
+                            $answer = whoWon($answer);
                             echo "Game Over: $answer";
                             echo boardPrinter($board);
                             die();
@@ -87,12 +87,12 @@ do{
                     $board[$i][$j] = 2;
                     $moveCounter++;
                     echo "The move count is now: $moveCounter \n";
-                    $answer = determineWinner($board);
+                    $answer = determineWinner($board, $moveCounter);
                     echo 'The $answer variable is printing as: ' . $answer . "\n";
 
 
                         if($answer === 1 || $answer === 2){
-                            $answer = whoWon($answer, $moveCounter);
+                            $answer = whoWon($answer);
                             echo "Game Over: $answer";
                             echo boardPrinter($board);
 
@@ -100,7 +100,7 @@ do{
                         }
 
                         if($answer === 3 && $moveCounter > 8){
-                            $answer = whoWon($answer, $moveCounter);
+                            $answer = whoWon($answer);
                             echo "Game Over: $answer";
                             echo boardPrinter($board);
                             die();
