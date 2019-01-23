@@ -1,4 +1,8 @@
 <?php
+
+require 'straightFinder.php';
+
+require 'flushFinder.php';
 /*
 1 5H 5C 6S 7S KD Pair of Fives 2C 3S 8S 8D TD Pair of Eights Player 2
 
@@ -43,20 +47,23 @@ $input = '5H 5C 5S 5S KD 2C 3S 8S 8D TD';
 //straight
 $input = '2H 3C 4S 5S 6D 2C 3S 8S 8D TD';
 
+//straight with face cards
+$input = '9H TC JS QS KD 2C 3S 8S 8D TD';
 
-
+//flush
+$input = '2H 3H 4H 5H 9H 2C 3S 8S 8D TD';
 
 //split the into an array by each space
 $arrayNow = explode(" ", $input);
 
 //make a player 1 array
 $player1Hand = array_slice($arrayNow, 0, 5);
-print_r($player1Hand);
-die();
+// print_r($player1Hand);
+// die();
 
 //make a player 2 array
 $player2Hand = array_slice($arrayNow, 5, 5);
-print_r($player2Hand);
+// print_r($player2Hand);
 
 //for each thing in the players hand
 $pairCount = 0;
@@ -99,56 +106,39 @@ for($i=1; $i<count($player1Hand); $i++){
         $fourOfAKindCount = 1;
     }
 
-    if($singleCard[0] == ($futureCard[0] -1 ) || $singleCard[0] == ($futureCard[0] + 1)){
-        echo "Consecutive.";
-        echo "----------------";
-        echo "\n";
+ 
 
-        $consecutive++;
+}
 
-        if($singleCard[0] == ($futureCard[0] - 2 ) || $singleCard[0] == ($futureCard[0] + 2)){
-            echo "Two cards in a row";
-            echo "\n";
 
-            echo "\n";
+//end for loop
 
-            echo "\n";
 
-            echo "\n";
+if(straightFinder($player1Hand)){
+    echo "hello";
+    $straightCount = 1;
 
-        }
-    }
-    echo '$singleCard[0] is: ' . ($singleCard[0]);
-    echo "\n";
+    //then check for flush
 
-    echo '$futureCard[0] - 1 is: ' . ($futureCard[0] - 1);
-    echo "\n";
+}
 
-    echo '$consecutive: ' . $consecutive;
-    echo "\n";
-  
+if(flushFinder($player1Hand)){
+    echo "flush -------";
+    $flushCount = 1;
 
-   
-    
+    //then check for flush
 
-/*
-    for($j=0; $j<count($singleCard); $j++){
-
-    }
-*/
-
-} //end for loop
-
+}
 //Testing area
 
-// echo 'The $pairCount is: ' . $pairCount . "\n" . "\n";
-// echo 'The $threeOfAKind is: ' . $threeOfAKind . "\n" . "\n";
-// echo 'The $fourOfAKindCount is: ' . $fourOfAKindCount . "\n" . "\n";
-// echo 'The $straightCount is: ' . $straightCount . "\n" . "\n";
-// echo 'The $flushCount is: ' . $flushCount . "\n" . "\n";
-// echo 'The $fullHouseCount is: ' . $fullHouseCount . "\n" . "\n";
-// echo 'The $fourOfAKindCount is: ' . $fourOfAKindCount . "\n" . "\n";
-// echo 'The $straightFlushCount is: ' . $straightFlushCount . "\n" . "\n";
-// echo 'The $royalFlushCount is: ' . $royalFlushCount . "\n" . "\n";
+echo 'The $pairCount is: ' . $pairCount . "\n" . "\n";
+echo 'The $threeOfAKind is: ' . $threeOfAKind . "\n" . "\n";
+echo 'The $fourOfAKindCount is: ' . $fourOfAKindCount . "\n" . "\n";
+echo 'The $straightCount is: ' . $straightCount . "\n" . "\n";
+echo 'The $flushCount is: ' . $flushCount . "\n" . "\n";
+echo 'The $fullHouseCount is: ' . $fullHouseCount . "\n" . "\n";
+echo 'The $fourOfAKindCount is: ' . $fourOfAKindCount . "\n" . "\n";
+echo 'The $straightFlushCount is: ' . $straightFlushCount . "\n" . "\n";
+echo 'The $royalFlushCount is: ' . $royalFlushCount . "\n" . "\n";
 
 
