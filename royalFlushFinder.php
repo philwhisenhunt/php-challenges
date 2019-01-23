@@ -9,7 +9,4 @@ function royalFlushFinder($player1Hand){
     if($positionValues[0] == 10){
         return true;
     }
-
-    echo "alsdfjasdl;kfjadksfal;skdjfal;sdkjfal;skdjfl;aksdj;l";
-
 }

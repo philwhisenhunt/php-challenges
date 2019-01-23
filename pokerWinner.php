@@ -84,7 +84,7 @@ $royalFlushCount = 0;
 $consecutive = 0;
 
 
-
+/*
 for($i=1; $i<count($player1Hand); $i++){
 
     $singleCard = str_split($player1Hand[0]);
@@ -115,13 +115,13 @@ for($i=1; $i<count($player1Hand); $i++){
  
 
 }
+*/
 
 
 //end for loop
 
 
 if(straightFinder($player1Hand)){
-    echo "hello000000000";
     $straightCount = 1;
 
     //then check for flush
@@ -129,7 +129,6 @@ if(straightFinder($player1Hand)){
 }
 
 if(flushFinder($player1Hand)){
-    echo "flush -------";
     $flushCount = 1;
 
     //then check for flush

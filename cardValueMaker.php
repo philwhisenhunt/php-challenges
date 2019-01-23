@@ -39,15 +39,7 @@ function cardValueMaker($player1Hand){
         }
     
     }
-    // echo 'Position Values are: ';
-    // print_r($positionValues);
+    
     return $positionValues;
 
 }
-
-// //Makes a usable version of the player hand
-// $player1Hand = '2H 3C 4S 5S 6D';
-// $arrayNow = explode(" ", $player1Hand);
-// $player1Hand = array_slice($arrayNow, 0, 5);
-
-// print_r(cardValueMaker($player1Hand));
