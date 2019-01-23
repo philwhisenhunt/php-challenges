@@ -19,10 +19,13 @@ check for straight:
     or sort the numbers and check for consequtive
 
 check for flush{
-    grab the suit
-    if the suit matches the next one, keep going
-    if they all match, check for straight
-    royal flush
+    grab the suit (index[1])
+    if the suit matches the next one
+        keep going
+    if they all match
+        check for straight
+    if straight flush
+        check for royal flush
     return flush
 
 }
@@ -31,22 +34,25 @@ Maybe have a different function for each thing to check?
 */
 
 $input = '5H 5C 6S 7S KD 2C 3S 8S 8D TD';
+//three of a kind
+$input = '5H 5C 5S 7S KD 2C 3S 8S 8D TD';
+
+//four of a kind
+$input = '5H 5C 5S 5S KD 2C 3S 8S 8D TD';
+
+//straight
+$input = '2H 3C 4S 5S 6D 2C 3S 8S 8D TD';
+
+
 
 
 //split the into an array by each space
 $arrayNow = explode(" ", $input);
 
-//Lets see what we got
-// print_r($arrayNow);
-
-echo 'Player: ' . $arrayNow[0];
-echo "\n";
-echo "\n";
-
-
 //make a player 1 array
 $player1Hand = array_slice($arrayNow, 0, 5);
 print_r($player1Hand);
+die();
 
 //make a player 2 array
 $player2Hand = array_slice($arrayNow, 5, 5);
@@ -54,6 +60,18 @@ print_r($player2Hand);
 
 //for each thing in the players hand
 $pairCount = 0;
+$threeOfAKind = 0;
+$fourOfAKindCount = 0;
+$straightCount = 0;
+$flushCount = 0;
+$fullHouseCount = 0;
+$fourOfAKindCount = 0;
+$straightFlushCount = 0;
+$royalFlushCount = 0;
+$consecutive = 0;
+
+
+
 for($i=1; $i<count($player1Hand); $i++){
 
     $singleCard = str_split($player1Hand[0]);
@@ -68,23 +86,50 @@ for($i=1; $i<count($player1Hand); $i++){
 
 
     if($singleCard[0] == $futureCard[0]){
-        echo "It matches!!";
+        // echo "It matches!!";
         $pairCount++;
-
-        echo "\n";
-
-        echo "\n";
     }
+
 
     if($pairCount == 2){
         $threeOfAKind = 1;
     }
 
     if($pairCount == 3){
-        $fourOfAKind = 4;
+        $fourOfAKindCount = 1;
     }
+
+    if($singleCard[0] == ($futureCard[0] -1 ) || $singleCard[0] == ($futureCard[0] + 1)){
+        echo "Consecutive.";
+        echo "----------------";
+        echo "\n";
+
+        $consecutive++;
+
+        if($singleCard[0] == ($futureCard[0] - 2 ) || $singleCard[0] == ($futureCard[0] + 2)){
+            echo "Two cards in a row";
+            echo "\n";
+
+            echo "\n";
+
+            echo "\n";
+
+            echo "\n";
+
+        }
+    }
+    echo '$singleCard[0] is: ' . ($singleCard[0]);
+    echo "\n";
+
+    echo '$futureCard[0] - 1 is: ' . ($futureCard[0] - 1);
+    echo "\n";
+
+    echo '$consecutive: ' . $consecutive;
+    echo "\n";
+  
+
    
-   
+    
 
 /*
     for($j=0; $j<count($singleCard); $j++){
@@ -92,57 +137,18 @@ for($i=1; $i<count($player1Hand); $i++){
     }
 */
 
-    
-   
-    // print_r($singleCard);
-}
-echo 'The $pairCount is: ' . $pairCount . "\n";
+} //end for loop
 
+//Testing area
 
+// echo 'The $pairCount is: ' . $pairCount . "\n" . "\n";
+// echo 'The $threeOfAKind is: ' . $threeOfAKind . "\n" . "\n";
+// echo 'The $fourOfAKindCount is: ' . $fourOfAKindCount . "\n" . "\n";
+// echo 'The $straightCount is: ' . $straightCount . "\n" . "\n";
+// echo 'The $flushCount is: ' . $flushCount . "\n" . "\n";
+// echo 'The $fullHouseCount is: ' . $fullHouseCount . "\n" . "\n";
+// echo 'The $fourOfAKindCount is: ' . $fourOfAKindCount . "\n" . "\n";
+// echo 'The $straightFlushCount is: ' . $straightFlushCount . "\n" . "\n";
+// echo 'The $royalFlushCount is: ' . $royalFlushCount . "\n" . "\n";
 
-
-
-
-
-//scan for each of the ten ways. 
-
-//start with an easy one. Pairs
-
-/*
-Take the first card, see if any of the others match it
-If they do, count how many match it.
-
-For each hard
-how many match it by number
-How many match it by suit
-
-Scan this
-5H 5C 6S 7S KD
-
-Pairs: 1
-Suit-match: 0
-
-Do I really need to separate that last card from the distinction? 
-
-
-For each entry in hand{
-    Grab an element
-    grab first number
-    If it matches, then matchCount++
-    Then check suit
-    If suit matches, then suitCount++
-    If suitCount === 5, then flush
-
-    If matchCount === 3{
-        threeOfaKind = 1;
-    }
-
-    if matchCount === 4{
-        fourOfaKindCount = 1
-    }
-
-    start at 0, check all 4 following
-    for 1, check the following there too,
-}
-*/
 
