@@ -49,28 +49,12 @@ for($i=1; $i<count($player1Hand); $i++){
 
         echo "\n";
     }
-    // echo "The singleCard is: ";
-    // print_r($singleCard);
-    // echo "\n";
+   
 
 /*
     for($j=0; $j<count($singleCard); $j++){
 
-            echo "\n";
-        //compare the card here:
-        if($singleCard[0] === $player1Hand[$i]){
-            $pairCount++;
-            echo '$pairCount is now: ' . $pairCount;
-        }
-
-        $primaryCard = $singleCard[$j];
-        echo '$primaryCard is: ' . $primaryCard;
-        echo "\n";
-
-        // echo '$singleCard[1] is: ' . $singleCard[1];
-        $cardSuit = $singleCard[1];
-        echo ' and the suit is: ' . $cardSuit . "\n";
-         }
+    }
 */
 
     
