@@ -7,6 +7,8 @@ function straightFinder($player1Hand){
 
     //sort position values
     sort($positionValues);
+    echo "ALERT:::::::: \n \n";
+    print_r($positionValues);
 
     $amountInOrder = 0;
 

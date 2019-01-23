@@ -30,7 +30,7 @@ function cardValueMaker($player1Hand){
         }
 
         elseif($card[0] == 'A'){
-            $positionValues[] = 13;
+            $positionValues[] = 14;
 
         }
 

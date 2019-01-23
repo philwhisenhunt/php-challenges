@@ -1,8 +1,8 @@
 <?php
 
 require 'straightFinder.php';
-
 require 'flushFinder.php';
+require 'royalFlushFinder.php';
 /*
 1 5H 5C 6S 7S KD Pair of Fives 2C 3S 8S 8D TD Pair of Eights Player 2
 
@@ -52,6 +52,12 @@ $input = '9H TC JS QS KD 2C 3S 8S 8D TD';
 
 //flush
 $input = '2H 3H 4H 5H 9H 2C 3S 8S 8D TD';
+
+//straight flush
+$input = '2H 3H 4H 5H 6H 2C 3S 8S 8D TD';
+
+//royal flush finder
+$input = 'TH JH QH KH AH 2C 3S 8S 8D TD';
 
 //split the into an array by each space
 $arrayNow = explode(" ", $input);
@@ -115,7 +121,7 @@ for($i=1; $i<count($player1Hand); $i++){
 
 
 if(straightFinder($player1Hand)){
-    echo "hello";
+    echo "hello000000000";
     $straightCount = 1;
 
     //then check for flush
@@ -128,6 +134,16 @@ if(flushFinder($player1Hand)){
 
     //then check for flush
 
+}
+
+if($flushCount == 1 && $straightCount == 1){
+    $straightFlushCount = 1;
+}
+
+if($straightFlushCount == 1){
+    if(royalFlushFinder($player1Hand)){
+        $royalFlushCount = 1;
+    }
 }
 //Testing area
 
