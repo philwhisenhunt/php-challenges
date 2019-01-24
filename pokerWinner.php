@@ -7,53 +7,6 @@ require 'pairFinder.php';
 require 'cardValueMaker.php';
 require 'twoPairFinder.php';
 
-/*
-1 5H 5C 6S 7S KD Pair of Fives 2C 3S 8S 8D TD Pair of Eights Player 2
-*/
-
-$input = '5H 5C 6S 7S KD 2C 3S 8S 8D TD';
-
-//three of a kind
-$input = '5H 5C 5S 7S KD 2C 3S 8S 8D TD';
-
-//four of a kind
-$input = '5H 5C 5S 5S KD 2C 3S 8S 8D TD';
-
-//straight
-$input = '2H 3C 4S 5S 6D 2C 3S 8S 8D TD';
-
-//straight with face cards
-$input = '9H TC JS QS KD 2C 3S 8S 8D TD';
-
-//flush
-$input = '2H 3H 4H 5H 9H 2C 3S 8S 8D TD';
-
-//straight flush
-$input = '2H 3H 4H 5H 6H 2C 3S 8S 8D TD';
-
-//royal flush finder
-$input = 'TH JH QH KH AH 2C 3S 8S 8D TD';
-
-//three of a kind again
-$input = '5H 5C 5S 7S KD 2C 3S 8S 8D TD';
-
-//two pair
-$input = '5H 5C 4S 4S KD 2C 3S 8S 8D TD';
-
-
-
-
-//split the into an array by each space
-$arrayNow = explode(" ", $input);
-
-//make a player 1 array
-$player1Hand = array_slice($arrayNow, 0, 5);
-// print_r($player1Hand);
-// die();
-
-//make a player 2 array
-$player2Hand = array_slice($arrayNow, 5, 5);
-// print_r($player2Hand);
 
 //for each thing in the players hand
 $pairCount = 0;
@@ -98,26 +51,27 @@ if(twoPairFinder($player1Hand)){
 if(straightFinder($player1Hand)){
     $straightCount = 1;
 
-    //then check for flush
 
 }
 
+//check for flush
 if(flushFinder($player1Hand)){
     $flushCount = 1;
 
-    //then check for flush
-
 }
 
+//check for straight flush
 if($flushCount == 1 && $straightCount == 1){
     $straightFlushCount = 1;
 }
 
+//check for royal flush
 if($straightFlushCount == 1){
     if(royalFlushFinder($player1Hand)){
         $royalFlushCount = 1;
     }
 }
+
 //Testing area
 
 echo 'The $pairCount is: ' . $pairCount . "\n" . "\n";
