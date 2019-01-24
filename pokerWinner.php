@@ -9,36 +9,6 @@ require 'twoPairFinder.php';
 
 /*
 1 5H 5C 6S 7S KD Pair of Fives 2C 3S 8S 8D TD Pair of Eights Player 2
-
-Take a txt file and determine how many hands player 1 wins. 
-
-So rank each type of hand
-Then compare the ranks of each hand
-If the ranks are the same, then rescan for high card. 
-
-Check for pairs
-If there is a pair check for three of a kind
-    If there is a three of a kind, check for full house
-If two pair, check for four of a kind
-If pair but not three of a kind or four of a kind, then check for two pair  
-
-check for straight:
-    for each part, check for number lower than and greater than
-    or sort the numbers and check for consequtive
-
-check for flush{
-    grab the suit (index[1])
-    if the suit matches the next one
-        keep going
-    if they all match
-        check for straight
-    if straight flush
-        check for royal flush
-    return flush
-
-}
-
-Maybe have a different function for each thing to check?
 */
 
 $input = '5H 5C 6S 7S KD 2C 3S 8S 8D TD';

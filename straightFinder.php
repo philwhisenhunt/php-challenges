@@ -8,8 +8,7 @@ function straightFinder($player1Hand){
 
     //sort position values
     sort($positionValues);
-    echo "ALERT:::::::: \n \n";
-    print_r($positionValues);
+    // print_r($positionValues);
 
     $amountInOrder = 0;
 
@@ -23,11 +22,11 @@ function straightFinder($player1Hand){
     }
 
     if ($amountInOrder == 4){
-        echo "It is a straight";
+        // echo "It is a straight";
         return true;
     }
     else{
-        echo "Definitely not a straight.. ";
+        // echo "Definitely not a straight.. ";
         return false;
     }
 }
