@@ -1,7 +1,8 @@
 <?php
 
 function pairFinder($player1Hand){
-        
+    $matchingCardCount = 0;
+
     for($i=1; $i<count($player1Hand); $i++){
 
     $singleCard = str_split($player1Hand[0]);
@@ -20,17 +21,14 @@ function pairFinder($player1Hand){
         $matchingCardCount++;
     }
 
-    if($matchingCardCount == 3){
-        
-        return $fourOfAKindCount = 1;
-    }
-
-    if($matchingCardCount == 2){
-        return $threeOfAKind = 1;
-    }
-
    
-
-
     }
+    return $matchingCardCount;
+
 }
+
+
+
+
+
+

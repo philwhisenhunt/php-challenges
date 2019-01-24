@@ -3,6 +3,7 @@
 require 'straightFinder.php';
 require 'flushFinder.php';
 require 'royalFlushFinder.php';
+require 'pairFinder.php';
 /*
 1 5H 5C 6S 7S KD Pair of Fives 2C 3S 8S 8D TD Pair of Eights Player 2
 
@@ -38,6 +39,7 @@ Maybe have a different function for each thing to check?
 */
 
 $input = '5H 5C 6S 7S KD 2C 3S 8S 8D TD';
+
 //three of a kind
 $input = '5H 5C 5S 7S KD 2C 3S 8S 8D TD';
 
@@ -58,6 +60,9 @@ $input = '2H 3H 4H 5H 6H 2C 3S 8S 8D TD';
 
 //royal flush finder
 $input = 'TH JH QH KH AH 2C 3S 8S 8D TD';
+
+//three of a kind again
+$input = '5H 5C 5S 7S KD 2C 3S 8S 8D TD';
 
 //split the into an array by each space
 $arrayNow = explode(" ", $input);
@@ -116,6 +121,28 @@ for($i=1; $i<count($player1Hand); $i++){
 
 }
 */
+
+$matchingCardCount = pairFinder($player1Hand);
+
+if($matchingCardCount == 3){
+    
+    $fourOfAKindCount = 1;
+    $threeOfAKind = 1;
+    $pairCount = 1;
+}
+
+if($matchingCardCount == 2){
+    $threeOfAKind = 1;
+    $pairCount = 1;
+}
+
+if($matchingCardCount == 1){
+    $pairCount = 1;
+
+}
+
+
+
 
 
 //end for loop
