@@ -64,6 +64,12 @@ $input = 'TH JH QH KH AH 2C 3S 8S 8D TD';
 //three of a kind again
 $input = '5H 5C 5S 7S KD 2C 3S 8S 8D TD';
 
+//two pair
+$input = '5H 5C 4S 4S KD 2C 3S 8S 8D TD';
+
+
+
+
 //split the into an array by each space
 $arrayNow = explode(" ", $input);
 
@@ -88,47 +94,13 @@ $straightFlushCount = 0;
 $royalFlushCount = 0;
 $consecutive = 0;
 
-
-/*
-for($i=1; $i<count($player1Hand); $i++){
-
-    $singleCard = str_split($player1Hand[0]);
-    // echo 'singleCard is: ';
-    // print_r($singleCard);
-
-    $futureCard = str_split($player1Hand[$i]);
-        // echo 'futureCard is: ';
-        // print_r($futureCard);
-
-    // die();
-
-
-    if($singleCard[0] == $futureCard[0]){
-        // echo "It matches!!";
-        $pairCount++;
-    }
-
-
-    if($pairCount == 2){
-        $threeOfAKind = 1;
-    }
-
-    if($pairCount == 3){
-        $fourOfAKindCount = 1;
-    }
-
- 
-
-}
-*/
-
 $matchingCardCount = pairFinder($player1Hand);
 
 if($matchingCardCount == 3){
     
     $fourOfAKindCount = 1;
     $threeOfAKind = 1;
-    $pairCount = 1;
+    $pairCount = 2;
 }
 
 if($matchingCardCount == 2){
@@ -141,11 +113,12 @@ if($matchingCardCount == 1){
 
 }
 
+//check for two pairs
+if(twoPairFinder($player1Hand)){
+    $pairCount = 2;
+    $twoPairCount = 1;
+}
 
-
-
-
-//end for loop
 
 
 if(straightFinder($player1Hand)){

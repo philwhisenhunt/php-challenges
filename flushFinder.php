@@ -14,8 +14,8 @@ function flushFinder($player1Hand){
         }
     }
 
-    echo 'sameSuitCount is: ' . $sameSuitCount . "\n";
-    
+    // echo 'sameSuitCount is: ' . $sameSuitCount . "\n";
+
     if($sameSuitCount == 5){
         return true;
     }
