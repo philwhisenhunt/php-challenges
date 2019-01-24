@@ -1,6 +1,6 @@
 <?php
 
-require 'cardValueMaker.php';
+// require 'cardValueMaker.php';
 
 function straightFinder($player1Hand){
 

@@ -1,6 +1,6 @@
 <?php
 
-require 'cardValueMaker.php';
+// require 'cardValueMaker.php';
 
 function twoPairFinder($player1Hand){
     $uniquePairCount = 0;
@@ -19,31 +19,38 @@ function twoPairFinder($player1Hand){
         //take the next value, compare the rest of the values to it. 
 
         for($j=($i+1); $j<count($positionValues); $j++){
-            echo '$positionValues[$i] is ' . $positionValues[$i];
-            echo "\n";
-            echo '$positionValues[$j] is ' . $positionValues[$j];
-            echo "\n";
-            echo "\n";
+            // echo '$positionValues[$i] is ' . $positionValues[$i];
+            // echo "\n";
+            // echo '$positionValues[$j] is ' . $positionValues[$j];
+            // echo "\n";
+            // echo "\n";
 
             if($positionValues[$i] == ($positionValues[$j])){
                 $uniquePairCount++;
-                echo '$uniquePairCount is '. $uniquePairCount;
-                echo "\n";
-                echo "\n";
+                // echo '$uniquePairCount is '. $uniquePairCount;
+                // echo "\n";
+                // echo "\n";
                 
             }
         }
-    }   
+    }  
+    if($uniquePairCount == 2){
+        return true;
+    } 
+
+    else{
+        return false;
+    }
 }
 
 //Makes a usable version of the player hand
-$player1Hand = '2H 3C 4S 5S 6D';
-$player1Hand = '3H 4C 5S 6S 7D';
-$player1Hand = '5H 5C 4S 4S KD';
-$arrayNow = explode(" ", $player1Hand);
-print_r($arrayNow);
-$player1Hand = array_slice($arrayNow, 0, 5);
-print_r($player1Hand);
+// $player1Hand = '2H 3C 4S 5S 6D';
+// $player1Hand = '3H 4C 5S 6S 7D';
+// $player1Hand = '5H 5C 4S 4S KD';
+// $arrayNow = explode(" ", $player1Hand);
+// print_r($arrayNow);
+// $player1Hand = array_slice($arrayNow, 0, 5);
+// print_r($player1Hand);
 
 
-twoPairFinder($player1Hand);
+// twoPairFinder($player1Hand);

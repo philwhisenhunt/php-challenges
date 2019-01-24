@@ -4,6 +4,9 @@ require 'straightFinder.php';
 require 'flushFinder.php';
 require 'royalFlushFinder.php';
 require 'pairFinder.php';
+require 'cardValueMaker.php';
+require 'twoPairFinder.php';
+
 /*
 1 5H 5C 6S 7S KD Pair of Fives 2C 3S 8S 8D TD Pair of Eights Player 2
 
@@ -84,6 +87,7 @@ $player2Hand = array_slice($arrayNow, 5, 5);
 
 //for each thing in the players hand
 $pairCount = 0;
+$twoPairCount = 0;
 $threeOfAKind = 0;
 $fourOfAKindCount = 0;
 $straightCount = 0;
@@ -147,6 +151,7 @@ if($straightFlushCount == 1){
 //Testing area
 
 echo 'The $pairCount is: ' . $pairCount . "\n" . "\n";
+echo 'The $twoPairCount is: ' . $twoPairCount . "\n" . "\n";
 echo 'The $threeOfAKind is: ' . $threeOfAKind . "\n" . "\n";
 echo 'The $fourOfAKindCount is: ' . $fourOfAKindCount . "\n" . "\n";
 echo 'The $straightCount is: ' . $straightCount . "\n" . "\n";
